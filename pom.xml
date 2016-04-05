@@ -35,7 +35,10 @@
 							<goal>site</goal>
 						</goals>
 						<configuration>
-							<outputDirectory>C:\MVN\project\target\site</outputDirectory>
+                                                        <additionalClasspathElements>
+                                                           <additionalClasspathElement>${project.basedir}/maven-dependencies</additionalClasspathElement>
+                                                        </additionalClasspathElements>
+							<outputDirectory>/home/mike/gitprojs/ci-test2/target/site</outputDirectory>
 							<reportPlugins>
 								<reportPlugin>
 									<groupId>org.apache.maven.plugins</groupId>
@@ -52,6 +55,15 @@
 					</execution>
 				</executions>
 			</plugin>
+                        <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-dependency-plugin</artifactId>
+                          <configuration>
+                             <outputDirectory>
+                              ${project.basedir}/maven-dependencies
+                             </outputDirectory>
+                          </configuration>
+                        </plugin>
 		</plugins>
 	</build>
 </project>
